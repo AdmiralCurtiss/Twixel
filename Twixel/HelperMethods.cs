@@ -538,6 +538,10 @@ namespace TwixelAPI
             }
         }
 
+        internal static AccessToken LoadAccessToken( JObject o, Twixel.APIVersion version ) {
+            return new AccessToken() { Token = (string)o["token"], Sig = (string)o["sig"] };
+        }
+
         internal static Dictionary<string, Uri> LoadLinks(JObject o)
         {
             if (o != null)
