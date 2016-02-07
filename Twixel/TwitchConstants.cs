@@ -12,6 +12,10 @@ namespace TwixelAPI.Constants
         /// </summary>
         public const string baseUrl = "https://api.twitch.tv/kraken/";
 
+        public const string apiUrl = "https://api.twitch.tv/api/";
+
+        public const string usherUrl = "http://usher.twitch.tv/";
+
         /// <summary>
         /// General Twitch API error
         /// </summary>

@@ -911,6 +911,39 @@ namespace TwixelAPI
             return HelperMethods.LoadVideo(JObject.Parse(responseString), version);
         }
 
+        public async Task<AccessToken> RetrieveVodAccessToken( string id, APIVersion version = APIVersion.None ) {
+            if ( version == APIVersion.None ) {
+                version = DefaultVersion;
+            }
+            Url url = new Url( TwitchConstants.apiUrl ).AppendPathSegments( "vods", id.Substring( 1 ), "access_token" );
+            Uri uri = new Uri( url.ToString() );
+            string responseString;
+            try {
+                responseString = await GetWebData( uri, version );
+            } catch ( TwitchException ex ) {
+                throw new TwixelException( TwitchConstants.twitchAPIErrorString, ex );
+            }
+            return HelperMethods.LoadAccessToken( JObject.Parse( responseString ), version );
+        }
+
+        public async Task<string> RetrieveVodM3U( string id, AccessToken accessToken = null, APIVersion version = APIVersion.None ) {
+            if ( accessToken == null ) {
+                accessToken = await RetrieveVodAccessToken( id, version );
+            }
+            if ( version == APIVersion.None ) {
+                version = DefaultVersion;
+            }
+            Url url = new Url( TwitchConstants.usherUrl ).AppendPathSegments( "vod", id.Substring( 1 ) ).SetQueryParam( "nauthsig", accessToken.Sig ).SetQueryParam( "nauth", accessToken.Token );
+            Uri uri = new Uri( url.ToString() );
+            string responseString;
+            try {
+                responseString = await GetWebData( uri, version );
+            } catch ( TwitchException ex ) {
+                throw new TwixelException( TwitchConstants.twitchAPIErrorString, ex );
+            }
+            return responseString;
+        }
+
         /// <summary>
         /// Gets the top videos on Twitch
         /// </summary>
