@@ -37,6 +37,7 @@
     <DocumentationFile>bin\Release\Twixel.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AccessToken.cs" />
     <Compile Include="Badge.cs" />
     <Compile Include="Block.cs" />
     <Compile Include="Channel.cs" />
