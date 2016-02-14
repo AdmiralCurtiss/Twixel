@@ -1058,7 +1058,7 @@ namespace TwixelAPI
             }
             url.SetQueryParams(new Dictionary<string, object>()
             {
-                { "broadcasts", broadcasts },
+                { "broadcast_type", broadcasts ? "archive" : "highlight" },
                 { "offset", offset }
             });
             if (version == APIVersion.v3)
@@ -1067,7 +1067,7 @@ namespace TwixelAPI
                 {
                     hls = false;
                 }
-                url.SetQueryParam("hls", hls);
+                url.SetQueryParam("hls", hls.ToString().ToLowerInvariant() );
             }
 
             Uri uri = new Uri(url.ToString());
