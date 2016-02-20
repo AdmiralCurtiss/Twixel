@@ -8,6 +8,7 @@ namespace TwixelAPI
     /// <summary>
     /// Resolution struct
     /// </summary>
+    [Serializable]
     public struct Resolution
     {
         /// <summary>
@@ -62,6 +63,7 @@ namespace TwixelAPI
     /// <summary>
     /// Video object
     /// </summary>
+    [Serializable]
     public class Video : TwixelObjectBase
     {
         /// <summary>

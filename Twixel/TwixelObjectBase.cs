@@ -8,6 +8,7 @@ namespace TwixelAPI
     /// TwixelObjectBase object.
     /// All Twixel objects (except for Emoticons) derive from this.
     /// </summary>
+    [Serializable]
     public class TwixelObjectBase
     {
         /// <summary>
