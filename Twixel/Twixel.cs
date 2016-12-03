@@ -1018,7 +1018,7 @@ namespace TwixelAPI
             }
             url.SetQueryParams(new
             {
-                broadcasts = broadcasts.ToString().ToLowerInvariant(),
+                broadcast_type = broadcasts ? "archive" : "highlight",
                 offset = offset
             });
             if (version == APIVersion.v3)
