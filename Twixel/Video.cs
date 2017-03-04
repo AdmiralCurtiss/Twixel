@@ -8,6 +8,7 @@ namespace TwixelAPI
     /// <summary>
     /// Resolution struct
     /// </summary>
+    [Serializable]
     public struct Resolution
     {
         /// <summary>
@@ -35,6 +36,7 @@ namespace TwixelAPI
     /// <summary>
     /// Thumbnail struct
     /// </summary>
+    [Serializable]
     public struct Thumbnail
     {
         /// <summary>
@@ -62,6 +64,7 @@ namespace TwixelAPI
     /// <summary>
     /// Video object
     /// </summary>
+    [Serializable]
     public class Video : TwixelObjectBase
     {
         /// <summary>
@@ -128,6 +131,7 @@ namespace TwixelAPI
         /// Link to preview images
         /// v5
         /// </summary>
+        [System.Runtime.Serialization.OptionalField( VersionAdded = 5 )]
         public Dictionary<string, Uri> previewv5;
         
         /// <summary>
@@ -179,17 +183,20 @@ namespace TwixelAPI
         /// Video language
         /// v5
         /// </summary>
+        [System.Runtime.Serialization.OptionalField( VersionAdded = 5 )]
         public string language;
 
         /// <summary>
         /// Viewability settings
         /// v5
         /// </summary>
+        [System.Runtime.Serialization.OptionalField( VersionAdded = 5 )]
         public string viewable;
 
         /// <summary>
         /// Thumbnails
         /// </summary>
+        [System.Runtime.Serialization.OptionalField( VersionAdded = 5 )]
         public Dictionary<string, Thumbnail> thumbnails;
 
         /// <summary>
