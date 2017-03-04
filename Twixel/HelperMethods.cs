@@ -528,7 +528,7 @@ namespace TwixelAPI
         internal static List<Video> LoadVideos(JObject o, Twixel.APIVersion version)
         {
             List<Video> videos = new List<Video>();
-            if (version == Twixel.APIVersion.v2 || version == Twixel.APIVersion.v3)
+            if (version == Twixel.APIVersion.v2 || version == Twixel.APIVersion.v3 || o["vods"] == null)
             {
                 foreach (JObject video in (JArray)o["videos"])
                 {
