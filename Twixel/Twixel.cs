@@ -8,6 +8,7 @@ using golf1052.Trexler;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using TwixelAPI.Constants;
+using Flurl;
 
 namespace TwixelAPI
 {
